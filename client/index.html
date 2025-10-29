@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Recommendation System</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="app">
+        <h1>🎬 Movie Reviews</h1>
+        <h6>Explore, Recommend and review your favorite movies</h6>
+
+        <input type="text" id="movieInput" placeholder="Enter a movie name..." />
+        <select id="genreFilter" onchange="recommendMovies()">
+            <option value="">All Genres</option>
+        </select>
+        <button onclick="recommendMovies()">Recommend</button>
+
+        <div id="recommendations" class="movie-grid"></div>
+
+        <!-- Movie detail panel -->
+        <div id="movieDetail" class="movie-detail" style="display:none; margin-top:40px;">
+            <img id="poster" src="" alt="Movie Poster" />
+            <div class="detail-info">
+                <h2 id="title"></h2>
+                <p id="genres"></p>
+                <p id="tags"></p>
+
+                <div class="rating-section">
+                    <strong>Your Rating:</strong>
+                    <div id="stars"></div>
+                    <textarea id="comment" placeholder="Leave a comment..."></textarea>
+                    <button id="submitReview">Submit Review</button>
+                </div>
+
+                <div id="reviewsContainer">
+                    <h3>User Reviews:</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+
+</html>

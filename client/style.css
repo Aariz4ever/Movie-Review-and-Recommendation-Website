@@ -1,0 +1,309 @@
+/* ---------- Base Styling ---------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  /* background: radial-gradient(circle at top, #0f0f1a, #050509 80%); */
+  background: linear-gradient(rgba(0, 0, 0, 0.81), rgba(0, 0, 0, 0.925)),
+                url("images/background2.jpg") no-repeat center center fixed;
+    background-size: cover;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  animation: fadeIn 1.2s ease-out;
+}
+
+h1 {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+  color: #e50914;
+  text-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
+  letter-spacing: 1px;
+  animation: slideDown 1.2s ease-out;
+}
+
+h6 {
+  font-weight: 400;
+  color: #bbb;
+  margin-bottom: 30px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* ---------- Inputs & Buttons ---------- */
+input[type="text"],
+select {
+  /* padding: 12px;
+  margin: 10px 5px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  width: 260px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  backdrop-filter: blur(5px);
+  transition: 0.3s ease; */
+    background-color: #000;         /* solid black background */
+  color: #fff;                    /* white text */
+  border: 1px solid #333;         /* subtle border */
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  appearance: none;  
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+input[type="text"]:focus,
+select:focus {
+  /* box-shadow: 0 0 10px #e50914;
+  transform: scale(1.03); */
+    outline: none;
+  border-color: #e50914;
+  box-shadow: 0 0 8px rgba(229, 9, 20, 0.5);
+}
+
+option {
+  background-color: #000;   /* dropdown menu background */
+  color: #fff;              /* text inside dropdown */
+}
+
+button {
+  padding: 12px 25px;
+  background: linear-gradient(90deg, #e50914, #b81d24);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #b81d24, #e50914);
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.6);
+  transform: scale(1.08);
+}
+
+/* ---------- Movie Grid ---------- */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+  padding: 10px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.movie-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+.movie-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(229, 9, 20, 0.5);
+}
+
+.movie-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, transparent, rgba(229, 9, 20, 0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.movie-card:hover::before {
+  opacity: 1;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-bottom: 2px solid rgba(229, 9, 20, 0.5);
+  transition: transform 0.4s ease;
+}
+
+.movie-card:hover img {
+  transform: scale(1.07);
+}
+
+.movie-card p {
+  padding: 12px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.movie-card:hover p {
+  color: #e50914;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  border-radius: 16px;
+  padding: 40px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 25px rgba(229, 9, 20, 0.3);
+  backdrop-filter: blur(10px);
+  transform: scale(0.95);
+  animation: popIn 0.5s ease forwards;
+}
+
+.modal-content img {
+  width: 200px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.close-btn:hover {
+  color: #e50914;
+  transform: rotate(90deg);
+}
+
+/* ---------- Rating Section ---------- */
+.rating-section {
+  margin-top: 25px;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.stars {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.stars .star {
+  cursor: pointer;
+  color: gray;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.stars .star:hover,
+.stars .star.selected {
+  color: gold;
+  transform: scale(1.2);
+}
+
+textarea {
+  width: 90%;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  border: none;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+textarea:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px #e50914;
+}
+
+/* ---------- Button Inside Rating ---------- */
+.rating-section button {
+  margin-top: 10px;
+  padding: 10px 25px;
+  background: linear-gradient(90deg, #e50914, #b81d24);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.rating-section button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
+}
+
+#tags {
+  margin-top: 8px;
+  font-size: 0.95em;
+  color: #bbb;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  max-width: 90%;
+  text-align: left;
+  word-wrap: break-word;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
