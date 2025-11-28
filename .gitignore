@@ -22,6 +22,6 @@ Thumbs.db
 .cache/
 
 # Ignore similarity files
-# similarity.json
+similarity.json
 similarity.pkl
 prev_client/
