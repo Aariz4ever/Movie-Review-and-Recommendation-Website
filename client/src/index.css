@@ -5,7 +5,7 @@ body {
   font-family: "Poppins", "Segoe UI", sans-serif;
   /* background: radial-gradient(circle at top, #0f0f1a, #050509 80%); */
   background: linear-gradient(rgba(0, 0, 0, 0.81), rgba(0, 0, 0, 0.925)),
-                url("images/background2.jpg") no-repeat center center fixed;
+                url("../assets/background2.jpg") no-repeat center center fixed;
     background-size: cover;
   color: #fff;
   display: flex;
@@ -15,6 +15,18 @@ body {
   padding: 40px 20px;
   overflow-x: hidden;
 }
+
+/* .movie-card img {
+  width: 150px;
+  border-radius: 8px;
+}
+
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+} */
+
 
 .app {
   width: 100%;
@@ -102,14 +114,27 @@ button:hover {
 }
 
 /* ---------- Movie Grid ---------- */
-.movie-grid {
+/* .movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 25px;
   margin-top: 40px;
   padding: 10px;
   animation: fadeIn 1.5s ease-out;
+} */
+/* ---------- Movie Grid ---------- */
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 40px;
+  padding: 10px;
+  justify-content: center; /* optional: center items */
 }
+
+
+
+
 
 .movie-card {
   position: relative;
@@ -120,6 +145,9 @@ button:hover {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
   backdrop-filter: blur(6px);
+  /* width: 100%; */
+   width: 180px; /* or 100% for grid */
+  flex: 1 1 180px; /* flex-grow, shrink, basis */
 }
 
 .movie-card:hover {
